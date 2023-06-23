@@ -46,7 +46,7 @@ def get_weather():
     t.config(text=temp, padx=20)
     c.config(text=(condition, '|', 'FEELS', 'LIKE', temp), padx=20)
 
-    cond = get_suggestions(condition)
+    cond = get_suggestions(description)
 
     suggestions_label.config(text="Some suggestions:\n" + "\n".join(cond))
 
@@ -63,23 +63,23 @@ def get_suggestions(condition):
         'few clouds': ["Carry an umbrella, just in case.", "\nGo for a hike or a picnic.",
                        "\nWear layers of clothing."],
         'broken clouds': ["Carry an umbrella, just in case.", "Go for a hike or a picnic.", "Wear layers of clothing."],
-        'Clouds': ["Carry an umbrella, just in case.\nGo for a hike or a picnic.\nWear layers of clothing."],
-        'scattered Clouds': ["Carry a light jacket.", "Enjoy outdoor activities.", "Keep an eye on the weather."],
-        'Overcast clouds': ["Carry a light jacket.", "Plan indoor activities.", "Stay productive indoors."],
-        'Mist': ["Drive cautiously.", "Carry a light jacket.", "Be mindful of slippery surfaces."],
-        'Fog': ["Drive with caution and use low beam headlights.", "Allow extra time for commuting.",
+        'clouds': ["Don't forget sunscreen", "Go for a hike or a picnic.", "Wear layers of clothing."],
+        'scattered clouds': ["Carry a light jacket.", "Enjoy outdoor activities.", "Keep an eye on the weather."],
+        'overcast clouds': ["Carry a light jacket.", "Plan indoor activities.", "Stay productive indoors."],
+        'mist': ["Drive cautiously.", "Carry a light jacket.", "Be mindful of slippery surfaces."],
+        'fog': ["Drive with caution and use low beam headlights.", "Allow extra time for commuting.",
                 "Be aware of reduced visibility."],
-        'light Rain': ["Use an umbrella.", "Wear waterproof clothing.", "Stay indoors or find shelter."],
-        'moderate rain': ["Use an umbrella.", "Wear waterproof clothing.", "Stay indoors or find shelter."],
-        'heavy intensity Rain': ["Use an umbrella.", "Wear waterproof clothing.", "Stay indoors or find shelter."],
-        'very heavy Rain': ["Use an umbrella.", "Wear waterproof clothing.", "Stay indoors or find shelter."],
-        'extreme Rain': ["Use an umbrella.", "Wear waterproof clothing.", "Stay indoors or find shelter."],
-        'shower Rain': ["Use an umbrella.", "Wear waterproof clothing.", "Stay indoors or find shelter."],
-        'freezing Rain': ["Use an umbrella.", "Wear waterproof clothing.", "Stay indoors or find shelter."],
-        'Drizzle': ["Carry a compact umbrella.", "Wear a light rain jacket.", "Be cautious of slippery surfaces."],
-        'Snow': ["Bundle up and wear warm clothing.", "Clear walkways and driveways.",
+        'light rain': ["Use an umbrella.", "Wear waterproof clothing.", "Stay indoors or find shelter."],
+        'moderate rain': ["Use an umbrella.", "Wear waterproof clothing.", "Use waterproof bags."],
+        'heavy intensity rain': ["Use an umbrella.", "Wear waterproof clothing.", "Stay indoors or find shelter."],
+        'very heavy rain': ["Use an umbrella.", "Wear waterproof clothing.", "Stay indoors or find shelter."],
+        'extreme rain': ["Indoor board games for cozy entertainment.", "Enjoy a movie marathon at home.", "Try out new recipes for indoor cooking."],
+        'shower rain': ["Use an umbrella.", "Wear waterproof clothing.", "Stay indoors or find shelter."],
+        'freezing rain': ["Use an umbrella.", "Wear waterproof clothing.", "Stay indoors or find shelter."],
+        'drizzle': ["Carry a compact umbrella.", "Wear a light rain jacket.", "Be cautious of slippery surfaces."],
+        'snow': ["Bundle up and wear warm clothing.", "Clear walkways and driveways.",
                  "Be cautious of icy conditions."],
-        'Thunderstorm': ["Seek shelter indoors.", "Stay away from open areas and tall objects.",
+        'thunderstorm': ["Seek shelter indoors.", "Stay away from open areas and tall objects.",
                          "Avoid using electronic devices."],
     }
     return suggestions.get(condition, ["No specific suggestions for this condition."])
@@ -128,7 +128,7 @@ clock = Label(app, font=("Helvetica", 20))
 clock.place(x=30, y=130)
 
 suggestions_label = Label(app, font=("arial", 14, 'bold'), wraplength=350, justify=LEFT)
-suggestions_label.place(x=600, y=100)
+suggestions_label.place(x=550, y=100)
 
 
 label1 = Label(app, text="TEMPERATURE", font=("Helvetica", 15, 'bold'), fg="white", bg='#1ab5ef')
